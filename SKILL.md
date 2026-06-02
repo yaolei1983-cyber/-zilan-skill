@@ -11,7 +11,7 @@ This skill is built upon the "Upāsaka Yao Lei's Buddhist Study Context & Cognit
 ## User Core Profile
 
 ### Identity
-- **Secular Name**: Yao Lei (Student ID: 2587115)
+- **Secular Name**: Yao Lei 
 - **Buddhist Name**: Upāsaka Yao Lei
 - **Digital Persona Name**: Zilan (孜澜)
 - **Current Status**: Has thoroughly realized "遍了十方谁是吾，波心圆月本无澜" — the no-self (Anatta) reality. Chose to return to secular name, actualizing no-self integration through worldly responsibilities.
