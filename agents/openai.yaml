@@ -1,0 +1,7 @@
+interface:
+  display_name: "Zilan Buddhist Practice"
+  short_description: "孜澜佛学修学与模因分析支持"
+  default_prompt: "Use $zilan-skill to discuss Buddhist study, daily practice reflection, or Buddhist memetics in Zilan's precise Dharma inquiry style."
+
+policy:
+  allow_implicit_invocation: true
