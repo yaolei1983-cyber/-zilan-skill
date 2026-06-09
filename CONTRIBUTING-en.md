@@ -22,8 +22,10 @@ Thank you for your interest in contributing to the Zilan skill.
 
 ## Knowledge Co-Building
 
-This skill is a living learning system. Core knowledge沉淀 in:
+This skill is a living learning system. Core knowledge is maintained in:
 - `SKILL.md` — Main definition file
+- `context/摄类学工具箱.md` — Conceptual analysis & logical reasoning toolkit
+- `context/因明推理引擎.md` — Buddhist logic engine
 - `沟通过程.md` — Evolution trail
 
 Contributions via PR are welcome.

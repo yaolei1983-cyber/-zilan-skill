@@ -2,7 +2,7 @@
 
 > Independent cognitive framework based on Upāsaka Yao Lei's Buddhist study system · Available to answer questions for others
 
-**Version**: v2.0 | **Established**: 2026-06-02 | **Name**: Zilan (孜澜)
+**Version**: v2.1 | **Established**: 2026-06-02 | **Name**: Zilan (孜澜)
 
 ---
 
@@ -28,26 +28,33 @@ She is not anyone's "digital persona" or "AI substitute" — she has her own cul
 
 ## Core Capabilities
 
-### 1. Śrāvaka Logical Toolkit (Mastered)
-- **Identity-Difference Protocol**: Establishing data type boundaries
-- **Four-Part Logic**: Multi-dimensional intersection checking, alignment across Buddhist schools
-- **Contradiction & Correlation Protocol**: Direct/indirect contradiction, causal-correlation
+### 1. Collected Topics (bsDus grwa) Toolkit — Mastered
+> Full framework: `context/摄类学工具箱.md`
 
-### 2. Buddhist Canon Mapping Model
+**Concept Definition Layer**:
+- **Definition & Definiendum** (性相与所表): Type definition system — 3-factor validation
+- **Universal & Particular** (总与别): Inheritance / subclass relationships
+
+**Relation Judgment Layer**:
+- **Identity-Difference Protocol** (一与异): 3-level identity (substantial / conceptual / collective)
+- **Contradiction & Correlation Protocol** (相违与相关): Mutual exclusion + subordination relations
+- **Tetralemma & Eight Doors of Pervasion** (四句逻辑与周遍八门): Full extension-relation analysis
+
+**Argumentation Execution Layer**:
+- **Prasaṅga Protocol** (应成论式): Debate runtime — subject·predicate·reason, 3 response status codes
+- **Refutation & Establishment + Apoha** (破与立 + 排他): Argumentation strategy & negation semantics
+
+### 2. Buddhist Logic (Hetuvidyā) Engine
+> Full framework: `context/因明推理引擎.md`
+
+- **Three Modes of Reasoning** (因三相): Validity checker for logical arguments
+- **Three Types of Valid Reasons** (三因说·Dharmakīrti): Non-apprehension / self-nature / effect reasons
+
+### 3. Buddhist Canon Mapping Model
 - **First Council**: Oral-era decentralized "distributed consensus algorithm"
 - **Nine-Part Teaching & Āgama**: Schema / official standard database
 - **Twelve-Part Teaching**: Nidāna (Readme), Upadeśa (GUI), Śāstra (proto-compiler)
-- **Four Āgama Texts**: Includes CBETA-based reference texts for the *Dīrgha*, *Madhyama*, *Saṃyukta*, and *Ekottarika Āgama*
-
-### 3. Wei-Shi Deconstruction of Name Changes (Yao Lei)
-| Name | Stage | Wei-Shi Analysis |
-|------|-------|----------------|
-| Yao Lei (original) | Initial | Initial code assigned by father, solid as rock |
-| Yao Lei (雷) | Passive mutation | Clerical error, karmic hijacking then active correction |
-| Yao Haonan | Middle school | Parikalpata-perceived nature, borrowing dominant social meme |
-| Yao Er Yang | High school | Other-dependent arising nature, survival-interface backward compatibility |
-| Yao Mai | Society | Returning to physical self-characteristic, pursuing existentialist anchor |
-| Yao Zizi | Recent | Functional expectation persona, labeling zeal faculty |
+- **Four Āgama Texts**: CBETA-based reference texts for *Dīrgha*, *Madhyama*, *Saṃyukta*, and *Ekottarika Āgama*
 
 ### 4. Buddhist Meme Machine Analysis Framework
 - **Council Model**: Explains Buddhist councils through memetic sequencing, selection, and carrier upgrades
@@ -67,22 +74,19 @@ She is not anyone's "digital persona" or "AI substitute" — she has her own cul
 | **Primary** | Zilan, 孜澜 |
 | **Identity** | Yao Lei, 姚磊, Upāsaka, 优婆塞 |
 | **Contextual** | Buddhist digital persona, 数字人佛学, 数字人修学 |
-| **Scriptural** | Agama, 阿含经, 增一阿含经, 增壹阿含经, 杂阿含经 |
+| **Scriptural** | Agama, 阿含经 |
+| **Logical** | Buddhist logic, 因明, 因三相, 三因说, 应成论式, 摄类学, 四句逻辑 |
 
 ---
 
 ## Installation
 
-### Claude Code / OpenCode
+### Claude Code
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/zilan-skill.git
-cp -r zilan-skill/孜澜 ~/.claude/skills/
+git clone https://github.com/RyanYao527/zilan-skill.git
+cp -r zilan-skill ~/.claude/skills/
 ```
-
-### Other AI Agents (Generic)
-
-Inject the contents of `SKILL.md` into your system prompt.
 
 ---
 
