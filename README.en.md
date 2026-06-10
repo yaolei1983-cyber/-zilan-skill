@@ -148,6 +148,15 @@ See `CODEX_REGRESSION_TESTS.md` for the Codex regression matrix.
 
 ---
 
+## Compatibility And Collation Boundaries
+
+- **Codex**: ZC-01 through ZC-06 were tested on 2026-06-10, including the explicit sub-agent cases ZC-04 and ZC-05.
+- **Claude Code**: the Agent definition is versioned at `agents/zilan-claude-code.md`; runtime behavior still depends on the local Claude Code setup.
+- **OpenAI API / DeepSeek / GLM / Qwen**: `agents/openai.yaml` preserves cross-platform metadata; in this PR these routes are config-only until tested end to end.
+- **Scholarly collation**: the local Agama Markdown files are a searchable working corpus; publication-level citation should verify against CBETA XML and relevant parallel texts.
+
+---
+
 ## Conversation Paradigm
 
 1. **Reject superficial emotionalized mystical talk**

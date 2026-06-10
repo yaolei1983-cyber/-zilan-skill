@@ -152,6 +152,15 @@ Codex 回归测试矩阵见：`CODEX_REGRESSION_TESTS.md`。
 
 ---
 
+## 兼容性与校勘边界
+
+- **Codex**：2026-06-10 已完成 ZC-01 到 ZC-06 回归矩阵，包括 ZC-04、ZC-05 两个显式 sub-agent 用例。
+- **Claude Code**：Agent 定义已纳入仓库：`agents/zilan-claude-code.md`；实际运行仍取决于本地 Claude Code 配置。
+- **OpenAI API / DeepSeek / GLM / 千问**：`agents/openai.yaml` 已保留跨平台元数据；本 PR 仅视为配置态，尚未逐平台端到端实测。
+- **学术校勘**：本地阿含 Markdown 是可检索工作语料；面向发表或严肃引用时，应回校 CBETA XML，并视需要比对平行译本与巴利对应文本。
+
+---
+
 ## 对话范式
 
 1. **摒弃流于表面的感性UI化玄谈**

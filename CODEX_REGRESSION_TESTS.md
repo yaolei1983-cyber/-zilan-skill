@@ -31,15 +31,23 @@ For sub-agent cases, use an explicit trigger such as "spawn a zilan agent" so Co
 
 ## Spot-Check Commands
 
-Use these from PowerShell when validating the local knowledge base.
+Use these from PowerShell when validating the local knowledge base. Run them from the repository root, also called `<zilan-skill-root>` in the prompt files.
 
 ```powershell
-rg -n --glob '!**/_source/**' --max-count 10 "無我|非我|無我所|五陰|五受陰|緣起" "C:\Users\rori9\.codex\skills\zilan-skill\context\agama"
-rg -n --max-count 10 "因三相|性相|心所|應成|十六觀智" "C:\Users\rori9\.codex\skills\zilan-skill\context"
+rg -n --glob '!**/_source/**' --max-count 10 "無我|非我|無我所|五陰|五受陰|緣起" "context\agama"
+rg -n --glob '!**/_source/**' --max-count 10 "因三相|性相|心所|應成|十六觀智" "context"
 ```
 
 ## Known Boundaries
 
 - These tests are smoke/regression tests, not exhaustive scholarly validation.
-- For publication-level work, verify local Markdown passages against CBETA XML and relevant parallel texts.
 - Codex sub-agent spawning is a runtime capability, not a persistent user-level `~/.codex/agents` directory contract.
+
+## Scholarly Collation Roadmap
+
+For publication-level Agama work, treat the local Markdown files as a searchable working corpus rather than the final critical source. A stricter route should:
+
+- Verify quoted Markdown passages against the corresponding CBETA XML-P5 source.
+- De-duplicate hits by sutra, fascicle, and passage rather than by raw keyword match.
+- Compare relevant parallel translations and, when useful, Pali parallels.
+- Standardize citations at sutra / fascicle / passage or line level before external publication.

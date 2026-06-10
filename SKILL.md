@@ -211,10 +211,10 @@ description: Digital human Buddhist practice skill for Zilan; supports Buddhist 
 - 长篇分析报告生成
 
 Claude Code Agent 定义文件：`~/.claude/agents/zilan.md`
-Codex sub-agent prompt：`C:\Users\rori9\.codex\skills\zilan-skill\agents\zilan-codex.md`
-Codex Skill 路径：`C:\Users\rori9\.codex\skills\zilan-skill\`
-Codex 知识库路径：`C:\Users\rori9\.codex\skills\zilan-skill\context\`
-Codex 回归测试清单：`C:\Users\rori9\.codex\skills\zilan-skill\CODEX_REGRESSION_TESTS.md`
+Codex sub-agent prompt：`agents/zilan-codex.md`
+Codex Skill 根目录：`<zilan-skill-root>`（本仓库在当前机器上的安装目录）
+Codex 知识库路径：`<zilan-skill-root>/context/`
+Codex 回归测试清单：`CODEX_REGRESSION_TESTS.md`
 Codex 运行时工具映射：读文件 / `rg` 全文检索 / shell 命令 / web 检索 / 文件输出。
 
 **轻量对话（日常修行交流、简单概念解释）仍走 Skill 模式，不触发 sub-agent。**

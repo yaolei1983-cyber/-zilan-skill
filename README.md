@@ -67,6 +67,15 @@ cp zilan-skill/agents/zilan-claude-code.md ~/.claude/agents/zilan.md
 
 ---
 
+## ✅ Compatibility status · 兼容性状态
+
+- **Codex**: ZC-01 through ZC-06 tested on 2026-06-10.
+- **Claude Code**: Agent definition is versioned in `agents/zilan-claude-code.md`; runtime behavior depends on local Claude Code setup.
+- **OpenAI API / DeepSeek / GLM / Qwen**: metadata is present in `agents/openai.yaml`; these routes are config-only until separately tested.
+- **Scholarly collation**: local Agama Markdown is a searchable working corpus; publication-level work should verify against CBETA XML and parallel texts.
+
+---
+
 ## 🔑 唤醒关键字 · Activation keywords
 
 **主关键字 Primary**: `孜澜` · `Zilan`
