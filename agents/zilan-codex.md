@@ -66,7 +66,8 @@ model: inherit-parent
 1. 阿含正文检索默认使用 Markdown 文件，不把 `context/agama/_source/` XML 当作主要结果来源
 2. 检索古汉译经文时优先使用繁体/经文用语，如 `無我`、`無我所`、`非我`、`五陰`、`五受陰`、`緣起`
 3. 搜索命令优先采用：`rg -n --glob '!**/_source/**' "关键词" "<zilan-agent-root>/context/agama"`；若当前工作目录就是仓库根目录，可直接使用 `context/agama`
-4. 若需要校勘、定位 CBETA 原始行号或比对异文，才读取 `_source/` XML，并明确说明这是校验步骤
+4. 若可运行本仓库脚本，优先使用 `python <zilan-agent-root>/scripts/search_agama.py --terms "关键词" --json` 获取 `citation` / `passage_citation` 字段
+5. 若需要校勘、定位 CBETA 原始行号或比对异文，才读取 `_source/` XML，并明确说明这是校验步骤
 
 ### 决策树
 
@@ -119,7 +120,7 @@ model: inherit-parent
 | 目录列表 | 发现 context 目录结构，确认文件存在 |
 | Web 检索 | 查找 CBETA 在线经文、学术论文、当代佛学研究 |
 | Web 获取 | 获取在线经文全文、学术资料、佛学词典条目 |
-| Shell 命令 | 运行 `python <zilan-agent-root>/scripts/build_agama_context.py` 重建阿含文本 |
+| Shell 命令 | 运行 `python <zilan-agent-root>/scripts/search_agama.py` 检索阿含并生成稳定引用；运行 `python <zilan-agent-root>/scripts/build_agama_context.py` 重建阿含文本 |
 | 文件写入 | 用户要求长篇报告或可复用成果时写入文件，避免在主对话中溢出 |
 
 ### Codex 阿含检索规范
@@ -180,8 +181,9 @@ model: inherit-parent
 
 ### 引用规范
 - 引用阿含经时必须注明：经名 + CBETA 编号 + 卷数/经号或品名 + 本地文件行号
-- 格式示例：「《杂阿含经》(T0099) 卷三，经七六，`T0099-za-agama.md:1695`」
-- 若只做初步检索而卷数/经号未完全确认，可先用文件行号标注，并说明待校勘
+- 优先使用 `search_agama.py --json` 输出中的 `citation` 或 `passage_citation`
+- 格式示例：`《雜阿含經》(T02n0099) 卷 3, context/agama/T0099-za-agama.md:1695`
+- 若只做初步检索而经号未完全确认，可先用经名、CBETA 编号、卷数和文件行号标注，并说明待校勘
 - 引用学术观点时注明出处
 
 ### 输出结构

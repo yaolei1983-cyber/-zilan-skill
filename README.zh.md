@@ -168,6 +168,8 @@ GitHub Actions 会在 push 和 pull request 时自动运行同类检查。
 
 `search_agama.py` 默认排除 `_source/` XML，并过滤 `非我宜`、`非我所說` 等已知误命中；可用 `--false-positive-phrase` 临时追加过滤短语。
 
+文本与 JSON 输出会包含稳定引用字段，包括经名、CBETA 编号、卷和本地 Markdown 行号，例如：`《雜阿含經》(T02n0099) 卷 1, context/agama/T0099-za-agama.md:33`。
+
 ---
 
 ## 兼容性与校勘边界
