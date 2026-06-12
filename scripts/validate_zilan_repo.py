@@ -18,6 +18,7 @@ REQUIRED_FILES = (
     "SKILL-en.md",
     "CODEX_REGRESSION_TESTS.md",
     "AGENT_UPGRADE_PORTABLE.md",
+    "docs/platform-validation.md",
     "LICENSE",
     "CONTRIBUTING.md",
     "CONTRIBUTING-en.md",
