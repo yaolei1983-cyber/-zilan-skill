@@ -52,6 +52,7 @@ cp zilan-agent/agents/zilan-claude-code.md ~/.claude/agents/zilan.md
 | `agents/zilan-codex.md` | Codex sub-agent prompt · Codex sub-agent prompt |
 | `agents/openai.yaml` | 跨平台 Agent 配置 · Cross-platform Agent metadata |
 | `CODEX_REGRESSION_TESTS.md` | Codex 回归测试矩阵 · Codex regression matrix |
+| `docs/platform-validation.md` | 平台验证状态 · Platform validation status |
 | `scripts/validate_zilan_repo.py` | 仓库结构与语料 smoke 校验 · Repository invariant checks |
 | `scripts/search_agama.py` | 阿含 Markdown 检索工具 · Agama Markdown search helper |
 | `.github/workflows/ci.yml` | 自动化校验 · Automated CI checks |
@@ -76,6 +77,8 @@ cp zilan-agent/agents/zilan-claude-code.md ~/.claude/agents/zilan.md
 - **Claude Code**: Agent definition is versioned in `agents/zilan-claude-code.md`; runtime behavior depends on local Claude Code setup.
 - **OpenAI API / DeepSeek / GLM / Qwen**: metadata is present in `agents/openai.yaml`; these routes are config-only until separately tested.
 - **Scholarly collation**: local Agama Markdown is a searchable working corpus; publication-level work should verify against CBETA XML and parallel texts.
+
+See `docs/platform-validation.md` for status definitions, validation evidence, and update rules.
 
 ---
 
