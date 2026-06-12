@@ -164,6 +164,8 @@ GitHub Actions runs the same class of checks on push and pull request.
 
 `search_agama.py` excludes `_source/` XML by default and filters known keyword collisions such as `非我宜` and `非我所說`; use `--false-positive-phrase` to add temporary filters.
 
+Text and JSON output include stable citation fields with sutra name, CBETA ID, fascicle, and local Markdown line references, for example `《雜阿含經》(T02n0099) 卷 1, context/agama/T0099-za-agama.md:33`.
+
 ---
 
 ## Compatibility And Collation Boundaries

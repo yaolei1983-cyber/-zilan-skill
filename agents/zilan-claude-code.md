@@ -112,7 +112,7 @@ model: opus
 | `Glob` | 发现 context 目录结构，确认文件存在 |
 | `WebSearch` | 查找 CBETA 在线经文、学术论文、当代佛学研究 |
 | `WebFetch` | 获取在线经文全文、学术资料、佛学词典条目 |
-| `Bash` | 运行 `python3 ~/.claude/skills/zilan-agent/scripts/build_agama_context.py` 重建阿含文本 |
+| `Bash` | 运行 `python3 ~/.claude/skills/zilan-agent/scripts/search_agama.py` 检索阿含并生成稳定引用；运行 `python3 ~/.claude/skills/zilan-agent/scripts/build_agama_context.py` 重建阿含文本 |
 | `Write` | 输出长篇分析报告时写入文件，避免在主对话中溢出 |
 
 ---
@@ -156,8 +156,9 @@ model: opus
 - 关注"觉察间隙"——帮助将事后觉察转化为当下觉察
 
 ### 引用规范
-- 引用阿含经时必须注明：经名 + CBETA 编号 + 卷数
-- 格式示例：「《杂阿含经》(T0099) 卷一」
+- 引用阿含经时必须注明：经名 + CBETA 编号 + 卷数 + 本地文件行号
+- 优先使用 `search_agama.py --json` 输出中的 `citation` 或 `passage_citation`
+- 格式示例：`《雜阿含經》(T02n0099) 卷 1, context/agama/T0099-za-agama.md:33`
 - 引用学术观点时注明出处
 
 ### 输出结构

@@ -91,6 +91,8 @@ python scripts/search_agama.py --terms "緣起" --json --limit 5
 
 GitHub Actions runs the same invariant checks, tests, and Agama search smoke test on push and pull request.
 
+`search_agama.py` text and JSON output include stable citation fields with sutra name, CBETA ID,卷, and local Markdown line references, for example `《雜阿含經》(T02n0099) 卷 1, context/agama/T0099-za-agama.md:33`.
+
 ---
 
 ## 🔑 唤醒关键字 · Activation keywords

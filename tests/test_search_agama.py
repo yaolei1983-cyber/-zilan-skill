@@ -25,6 +25,11 @@ def test_search_returns_auditable_markdown_locations() -> None:
     assert all(match.file.startswith("context/agama/") for match in matches)
     assert all(match.line > 0 for match in matches)
     assert any(match.juan for match in matches)
+    assert all(match.sutra_name for match in matches)
+    assert all(match.cbeta_id.startswith("T") for match in matches)
+    assert all(match.citation.startswith(f"《{match.sutra_name}》({match.cbeta_id})") for match in matches)
+    assert all(f"{match.file}:{match.line}" in match.citation for match in matches)
+    assert all(f"{match.file}:{match.passage_start_line}" in match.passage_citation for match in matches)
 
 
 def test_search_filters_known_false_positive_phrases() -> None:
@@ -55,6 +60,10 @@ def test_search_can_aggregate_by_passage() -> None:
     assert passages
     assert all(passage.start_line <= passage.end_line for passage in passages)
     assert all(passage.matched_lines for passage in passages)
+    assert all(passage.sutra_name for passage in passages)
+    assert all(passage.cbeta_id.startswith("T") for passage in passages)
+    assert all(passage.citation.startswith(f"《{passage.sutra_name}》({passage.cbeta_id})") for passage in passages)
+    assert all(f"{passage.file}:{passage.start_line}" in passage.citation for passage in passages)
     assert len({(passage.file, passage.start_line, passage.end_line) for passage in passages}) == len(passages)
 
 
@@ -70,7 +79,9 @@ def test_search_json_cli_output_is_machine_readable() -> None:
     data = json.loads(result.stdout)
 
     assert len(data) == 2
-    assert {"file", "line", "juan", "text"}.issubset(data[0])
+    assert {"file", "line", "sutra_name", "cbeta_id", "juan", "citation", "passage_citation", "text"}.issubset(
+        data[0]
+    )
 
 
 def test_search_text_cli_can_group_by_juan() -> None:
@@ -85,3 +96,5 @@ def test_search_text_cli_can_group_by_juan() -> None:
 
     assert "## context/agama/" in result.stdout
     assert "卷" in result.stdout
+    assert "《" in result.stdout
+    assert "(T" in result.stdout
