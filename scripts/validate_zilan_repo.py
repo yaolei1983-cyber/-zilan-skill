@@ -75,6 +75,29 @@ PLATFORM_VALIDATION_LABELS = {
     "glm": "GLM",
     "qwen": "Qwen",
 }
+AGENT_PROMPT_REQUIRED_FRAGMENTS = {
+    "agents/zilan-codex.md": (
+        "runtime: codex-sub-agent",
+        "Codex 阿含检索规范",
+        "引用阿含经时必须注明",
+        "边界与限制",
+        "search_agama.py --terms",
+        "search_agama.py --json",
+        "citation",
+        "passage_citation",
+        "T02n0099",
+        "context/agama/T0099-za-agama.md:",
+    ),
+    "agents/zilan-claude-code.md": (
+        "引用阿含经时必须注明",
+        "search_agama.py",
+        "search_agama.py --json",
+        "citation",
+        "passage_citation",
+        "T02n0099",
+        "context/agama/T0099-za-agama.md:",
+    ),
+}
 
 
 def _hash_file(path: Path) -> str:
@@ -180,16 +203,11 @@ def _check_regression_cases_yaml(root: Path, failures: list[str], warnings: list
 
 
 def _check_agent_prompts(root: Path, failures: list[str]) -> None:
-    codex_agent = (root / "agents/zilan-codex.md").read_text(encoding="utf-8")
-    required_fragments = (
-        "runtime: codex-sub-agent",
-        "Codex 阿含检索规范",
-        "引用阿含经时必须注明",
-        "边界与限制",
-    )
-    for fragment in required_fragments:
-        if fragment not in codex_agent:
-            failures.append(f"agents/zilan-codex.md missing required fragment: {fragment}")
+    for rel_path, required_fragments in AGENT_PROMPT_REQUIRED_FRAGMENTS.items():
+        text = (root / rel_path).read_text(encoding="utf-8")
+        for fragment in required_fragments:
+            if fragment not in text:
+                failures.append(f"{rel_path} missing required fragment: {fragment}")
 
 
 def _get_validation_mapping(data: object, failures: list[str]) -> dict[str, object]:
