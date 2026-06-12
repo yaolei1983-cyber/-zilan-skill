@@ -14,7 +14,7 @@ dependencies = []
 [project.optional-dependencies]
 dev = [
   "PyYAML>=6.0",
-  "pytest>=8.0",
+  "pytest>=7.4,<8.0",
   "ruff>=0.6",
 ]
 
@@ -32,3 +32,6 @@ include = ["scripts/*.py", "tests/*.py"]
 
 [tool.ruff.lint]
 select = ["B", "BLE", "E", "F", "I", "SIM", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+"scripts/build_agama_context.py" = ["E501"]

@@ -4,10 +4,9 @@ import argparse
 import json
 import re
 import sys
+from collections.abc import Iterable
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Iterable
-
 
 ROOT = Path(__file__).resolve().parents[1]
 AGAMA_DIR = ROOT / "context" / "agama"

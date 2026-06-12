@@ -2,7 +2,6 @@ from pathlib import Path
 
 from search_agama import iter_agama_markdown_files, search_agama
 
-
 ROOT = Path(__file__).resolve().parents[1]
 
 

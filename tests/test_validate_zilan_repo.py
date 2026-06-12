@@ -2,7 +2,6 @@ from pathlib import Path
 
 from validate_zilan_repo import run_checks
 
-
 ROOT = Path(__file__).resolve().parents[1]
 
 
