@@ -55,6 +55,7 @@ cp zilan-agent/agents/zilan-claude-code.md ~/.claude/agents/zilan.md
 | `CODEX_REGRESSION_TESTS.md` | Codex 回归测试矩阵 · Codex regression matrix |
 | `docs/platform-validation.md` | 平台验证状态 · Platform validation status |
 | `docs/runtime-validation-log.md` | 运行验证记录 · Runtime validation log |
+| `docs/runtime-evidence/` | 脱敏运行证据摘录 · Redacted runtime evidence excerpts |
 | `docs/maintenance-roadmap.md` | 维护路线图 · Maintenance roadmap |
 | `docs/installation.md` | 安装与运行指南 · Installation and runtime guide |
 | `docs/validation-evidence.md` | 运行证据归档规范 · Runtime evidence policy |
@@ -107,7 +108,7 @@ Maintenance priorities and release guardrails are tracked in `docs/maintenance-r
 
 Manual runtime validation evidence is tracked in `docs/runtime-validation-log.md`.
 
-Installation paths are documented in `docs/installation.md`; evidence and transcript rules are documented in `docs/validation-evidence.md`; provider route triage is documented in `docs/provider-routes.md`; release notes are tracked in `CHANGELOG.md`.
+Installation paths are documented in `docs/installation.md`; evidence and transcript rules are documented in `docs/validation-evidence.md`; redacted evidence excerpts live in `docs/runtime-evidence/`; provider route triage is documented in `docs/provider-routes.md`; release notes are tracked in `CHANGELOG.md`.
 
 ---
 

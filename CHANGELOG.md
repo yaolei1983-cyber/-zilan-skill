@@ -2,6 +2,19 @@
 
 All notable changes to zilan-agent are tracked here. Platform validation status remains governed by `agents/openai.yaml` and `docs/platform-validation.md`.
 
+## [2.4.3] - 2026-06-15
+
+### Added
+
+- Added `docs/runtime-evidence/` for small redacted validation excerpts.
+- Added command-output evidence for the 2026-06-15 clean install smoke test.
+- Added an evidence template for future runtime or provider validation excerpts.
+
+### Changed
+
+- Linked runtime validation log entries to committed evidence excerpts where available.
+- Added invariant checks for the runtime evidence directory.
+
 ## [2.4.2] - 2026-06-15
 
 ### Changed

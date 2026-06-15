@@ -2,7 +2,7 @@
 
 > Independent cognitive framework based on Upāsaka Yao Lei's Buddhist study system · Available to answer questions for others
 
-**Version**: v2.4.2 | **Established**: 2026-06-02 | **Last Updated**: 2026-06-15 | **Name**: Zilan (孜澜)
+**Version**: v2.4.3 | **Established**: 2026-06-02 | **Last Updated**: 2026-06-15 | **Name**: Zilan (孜澜)
 
 ---
 
@@ -171,7 +171,7 @@ Maintenance priorities and release guardrails are tracked in `docs/maintenance-r
 
 Manual runtime validation evidence is tracked in `docs/runtime-validation-log.md`.
 
-Installation paths are documented in `docs/installation.md`. Runtime evidence and transcript rules are documented in `docs/validation-evidence.md`. Provider route triage is documented in `docs/provider-routes.md`. Release notes are tracked in `CHANGELOG.md`.
+Installation paths are documented in `docs/installation.md`. Runtime evidence and transcript rules are documented in `docs/validation-evidence.md`. Redacted evidence excerpts live in `docs/runtime-evidence/`. Provider route triage is documented in `docs/provider-routes.md`. Release notes are tracked in `CHANGELOG.md`.
 
 ---
 

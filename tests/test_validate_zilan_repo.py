@@ -4,6 +4,7 @@ from validate_zilan_repo import (
     _check_agent_prompts,
     _check_platform_validation_doc,
     _check_portable_upgrade_doc,
+    _check_runtime_evidence_docs,
     run_checks,
 )
 
@@ -98,3 +99,21 @@ def test_portable_upgrade_doc_missing_current_fragments_is_reported(tmp_path: Pa
 
     assert any("Current Architecture" in failure for failure in failures)
     assert any("docs/provider-routes.md" in failure for failure in failures)
+
+
+def test_runtime_evidence_docs_missing_required_fragments_are_reported(tmp_path: Path) -> None:
+    evidence_dir = tmp_path / "docs" / "runtime-evidence"
+    evidence_dir.mkdir(parents=True)
+    (evidence_dir / "README.md").write_text("# Evidence\n", encoding="utf-8")
+    (evidence_dir / "evidence-template.md").write_text("# Template\n", encoding="utf-8")
+    (evidence_dir / "2026-06-15-clean-install-smoke.md").write_text(
+        "# Clean install\n",
+        encoding="utf-8",
+    )
+    failures: list[str] = []
+
+    _check_runtime_evidence_docs(tmp_path, failures)
+
+    assert any("Runtime Evidence Excerpts" in failure for failure in failures)
+    assert any("mode: dry-run" in failure for failure in failures)
+    assert any("Redaction note" in failure for failure in failures)

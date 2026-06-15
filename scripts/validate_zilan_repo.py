@@ -21,6 +21,9 @@ REQUIRED_FILES = (
     "AGENT_UPGRADE_PORTABLE.md",
     "docs/platform-validation.md",
     "docs/runtime-validation-log.md",
+    "docs/runtime-evidence/README.md",
+    "docs/runtime-evidence/evidence-template.md",
+    "docs/runtime-evidence/2026-06-15-clean-install-smoke.md",
     "docs/maintenance-roadmap.md",
     "docs/installation.md",
     "docs/validation-evidence.md",
@@ -69,6 +72,9 @@ REGRESSION_CASES_PATH = "tests/regression_cases.yaml"
 README_FILES = ("README.md", "README.zh.md", "README.en.md")
 PLATFORM_VALIDATION_DOC = "docs/platform-validation.md"
 RUNTIME_VALIDATION_LOG_DOC = "docs/runtime-validation-log.md"
+RUNTIME_EVIDENCE_INDEX_DOC = "docs/runtime-evidence/README.md"
+RUNTIME_EVIDENCE_TEMPLATE_DOC = "docs/runtime-evidence/evidence-template.md"
+RUNTIME_EVIDENCE_CLEAN_INSTALL_DOC = "docs/runtime-evidence/2026-06-15-clean-install-smoke.md"
 MAINTENANCE_ROADMAP_DOC = "docs/maintenance-roadmap.md"
 INSTALLATION_DOC = "docs/installation.md"
 VALIDATION_EVIDENCE_DOC = "docs/validation-evidence.md"
@@ -321,6 +327,8 @@ def _check_readme_platform_validation_links(root: Path, failures: list[str]) -> 
             failures.append(f"{rel_path} should link to {PLATFORM_VALIDATION_DOC}.")
         if RUNTIME_VALIDATION_LOG_DOC not in text:
             failures.append(f"{rel_path} should link to {RUNTIME_VALIDATION_LOG_DOC}.")
+        if "docs/runtime-evidence/" not in text:
+            failures.append(f"{rel_path} should link to docs/runtime-evidence/.")
         if MAINTENANCE_ROADMAP_DOC not in text:
             failures.append(f"{rel_path} should link to {MAINTENANCE_ROADMAP_DOC}.")
         if INSTALLATION_DOC not in text:
@@ -350,6 +358,36 @@ def _check_runtime_validation_log(root: Path, failures: list[str]) -> None:
     for case in REGRESSION_CASES:
         if case not in text:
             failures.append(f"{RUNTIME_VALIDATION_LOG_DOC} missing regression case: {case}")
+    if RUNTIME_EVIDENCE_CLEAN_INSTALL_DOC not in text:
+        failures.append(f"{RUNTIME_VALIDATION_LOG_DOC} should link to {RUNTIME_EVIDENCE_CLEAN_INSTALL_DOC}.")
+
+
+def _check_runtime_evidence_docs(root: Path, failures: list[str]) -> None:
+    index_text = (root / RUNTIME_EVIDENCE_INDEX_DOC).read_text(encoding="utf-8")
+    clean_install_text = (root / RUNTIME_EVIDENCE_CLEAN_INSTALL_DOC).read_text(encoding="utf-8")
+    template_text = (root / RUNTIME_EVIDENCE_TEMPLATE_DOC).read_text(encoding="utf-8")
+
+    for fragment in (
+        "Runtime Evidence Excerpts",
+        "Do not use this directory for",
+        "docs/validation-evidence.md",
+    ):
+        if fragment not in index_text:
+            failures.append(f"{RUNTIME_EVIDENCE_INDEX_DOC} missing required fragment: {fragment}")
+
+    for fragment in (
+        "2026-06-15 Clean Install Smoke Evidence",
+        "zilan-agent validation passed.",
+        "mode: dry-run",
+        "Found 5 matches",
+        "No secrets",
+    ):
+        if fragment not in clean_install_text:
+            failures.append(f"{RUNTIME_EVIDENCE_CLEAN_INSTALL_DOC} missing required fragment: {fragment}")
+
+    for fragment in ("Redaction note", "Output Excerpts", "Limitations"):
+        if fragment not in template_text:
+            failures.append(f"{RUNTIME_EVIDENCE_TEMPLATE_DOC} missing required fragment: {fragment}")
 
 
 def _check_portable_upgrade_doc(root: Path, failures: list[str]) -> None:
@@ -471,6 +509,7 @@ def run_checks(
     _check_agent_prompts(root, failures)
     _check_readme_platform_validation_links(root, failures)
     _check_runtime_validation_log(root, failures)
+    _check_runtime_evidence_docs(root, failures)
     _check_portable_upgrade_doc(root, failures)
     _check_yaml(root, failures, warnings, strict_yaml)
     _check_agama_search(root, failures)
