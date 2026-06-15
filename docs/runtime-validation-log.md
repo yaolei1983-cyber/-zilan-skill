@@ -157,7 +157,7 @@ Use conservative status labels:
 | Local path | `C:\tmp\zilan-clean-install-20260615` |
 | Repository commit | `7033ff1b7a46f626856a13799a0f2f65bd304838` |
 | Scope | Installation and engineering checks from `docs/installation.md` |
-| Transcript status | Command outputs summarized here; no model transcript involved. |
+| Transcript status | Command outputs summarized here and excerpted in `docs/runtime-evidence/2026-06-15-clean-install-smoke.md`; no model transcript involved. |
 | Overall result | `pass` |
 
 ### Checks

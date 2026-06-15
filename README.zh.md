@@ -2,7 +2,7 @@
 
 > 基于优婆塞姚磊佛学体系的独立认知框架 · 可为他人答疑解惑
 
-**版本**：v2.4.2 | **确立日期**：2026-06-02 | **最后更新**：2026-06-15 | **名字**：孜澜
+**版本**：v2.4.3 | **确立日期**：2026-06-02 | **最后更新**：2026-06-15 | **名字**：孜澜
 
 ---
 
@@ -175,7 +175,7 @@ GitHub Actions 会在 push 和 pull request 时自动运行同类检查。
 
 人工运行验证证据见：`docs/runtime-validation-log.md`。
 
-安装路径见：`docs/installation.md`。运行证据与 transcript 归档规范见：`docs/validation-evidence.md`。Provider 路线归类见：`docs/provider-routes.md`。版本变更记录见：`CHANGELOG.md`。
+安装路径见：`docs/installation.md`。运行证据与 transcript 归档规范见：`docs/validation-evidence.md`。脱敏证据摘录见：`docs/runtime-evidence/`。Provider 路线归类见：`docs/provider-routes.md`。版本变更记录见：`CHANGELOG.md`。
 
 ---
 

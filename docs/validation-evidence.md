@@ -18,7 +18,7 @@ This policy defines what counts as validation evidence for Zilan platform routes
 
 - Summary evidence belongs in `docs/runtime-validation-log.md`.
 - Platform status belongs in `docs/platform-validation.md` and `agents/openai.yaml`.
-- Optional transcript excerpts may be committed under a future `docs/runtime-evidence/` directory when they are safe and useful.
+- Redacted transcript or command-output excerpts may be committed under `docs/runtime-evidence/` when they are safe and useful.
 - Large raw transcripts, private account logs, and provider dashboards should not be committed. Summarize them instead.
 
 ## Minimum Runtime Entry
@@ -78,3 +78,7 @@ Transcript-backed evidence is strongest when it includes:
 - any failed first attempts that affected the final fix
 
 Do not commit full transcripts by default. Prefer small, redacted excerpts that explain the behavioral claim being made.
+
+## Evidence Directory
+
+Use `docs/runtime-evidence/README.md` for naming and structure. Every committed evidence excerpt should link back to a `docs/runtime-validation-log.md` entry and should include a redaction note.
