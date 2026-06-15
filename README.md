@@ -47,6 +47,7 @@ cp zilan-agent/agents/zilan-claude-code.md ~/.claude/agents/zilan.md
 | `README.zh.md` | 完整文档 · Full documentation (Chinese) |
 | `README.en.md` | 完整文档 · Full documentation (English) |
 | `CONTRIBUTING.md` / `CONTRIBUTING-en.md` | 贡献指南 · How to contribute |
+| `CHANGELOG.md` | 版本变更记录 · Release notes |
 | `LICENSE` | MIT 开源许可 · MIT license |
 | `agents/zilan-claude-code.md` | Claude Code Agent 定义 · Claude Code Agent definition |
 | `agents/zilan-codex.md` | Codex sub-agent prompt · Codex sub-agent prompt |
@@ -55,6 +56,9 @@ cp zilan-agent/agents/zilan-claude-code.md ~/.claude/agents/zilan.md
 | `docs/platform-validation.md` | 平台验证状态 · Platform validation status |
 | `docs/runtime-validation-log.md` | 运行验证记录 · Runtime validation log |
 | `docs/maintenance-roadmap.md` | 维护路线图 · Maintenance roadmap |
+| `docs/installation.md` | 安装与运行指南 · Installation and runtime guide |
+| `docs/validation-evidence.md` | 运行证据归档规范 · Runtime evidence policy |
+| `docs/provider-routes.md` | Provider 路线归类 · Provider route triage |
 | `docs/openai-api-harness.md` | OpenAI API harness 说明 · OpenAI API harness guide |
 | `scripts/validate_zilan_repo.py` | 仓库结构与语料 smoke 校验 · Repository invariant checks |
 | `scripts/search_agama.py` | 阿含 Markdown 检索工具 · Agama Markdown search helper |
@@ -102,6 +106,8 @@ GitHub Actions runs the same invariant checks, tests, and Agama search smoke tes
 Maintenance priorities and release guardrails are tracked in `docs/maintenance-roadmap.md`.
 
 Manual runtime validation evidence is tracked in `docs/runtime-validation-log.md`.
+
+Installation paths are documented in `docs/installation.md`; evidence and transcript rules are documented in `docs/validation-evidence.md`; provider route triage is documented in `docs/provider-routes.md`; release notes are tracked in `CHANGELOG.md`.
 
 ---
 

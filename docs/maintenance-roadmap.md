@@ -1,6 +1,6 @@
 # Maintenance Roadmap
 
-> Last updated: 2026-06-12
+> Last updated: 2026-06-15
 
 This roadmap records engineering maintenance state and next priorities for zilan-agent. It is not platform validation evidence. Platform status remains governed by `agents/openai.yaml` and `docs/platform-validation.md`.
 
@@ -13,9 +13,13 @@ This roadmap records engineering maintenance state and next priorities for zilan
 | Regression inventory | `CODEX_REGRESSION_TESTS.md` is mirrored by `tests/regression_cases.yaml`; CI validates structure, resources, and case IDs. |
 | Platform status | `agents/openai.yaml` is the machine-readable source; `docs/platform-validation.md` is the human-readable validation record. |
 | Runtime validation | `docs/runtime-validation-log.md` records manual runtime validation sessions and transcript availability. |
+| Runtime evidence policy | `docs/validation-evidence.md` defines evidence levels, transcript redaction, and status-promotion rules. |
+| Installation docs | `docs/installation.md` separates Codex, Claude Code, and OpenAI API operating paths. |
 | OpenAI API harness | `scripts/openai_api_harness.py` builds dry-run or live Responses API requests from `agents/openai.yaml` and regression cases; live runs require `OPENAI_API_KEY`. |
+| Provider route triage | `docs/provider-routes.md` keeps OpenAI API, DeepSeek, GLM, and Qwen route claims conservative until live evidence exists. |
 | Agama search | `scripts/search_agama.py` searches Markdown only by default, filters known false positives, supports passage grouping, emits JSON, and provides stable `citation` / `passage_citation` fields. |
 | Agent prompts | Codex and Claude agent prompts are checked for the Agama citation contract and must prefer `search_agama.py --json` citation fields when available. |
+| Release notes | `CHANGELOG.md` records project-level release changes. |
 
 ## Operating Rules
 
@@ -33,11 +37,11 @@ This roadmap records engineering maintenance state and next priorities for zilan
 | P1 | Validation evidence | Replace summarized baselines with transcript-backed Codex and Claude Code sessions where practical. | Runtime results are auditable without relying on chat history. |
 | P1 | Claude Code route | Keep the Claude Code route current after prompt, installation-path, or tool-permission changes. | New ZC evidence is appended after material changes. |
 | P1 | OpenAI API route | Run the minimal harness in live mode with `OPENAI_API_KEY` and record a dated response summary. | OpenAI API can move from `harness-ready` to `tested` only after live evidence is recorded. |
-| P1 | Provider routes | Validate or explicitly block DeepSeek, GLM, and Qwen route assumptions. | Each route has a dated tested or blocked entry with provider/model details and failure modes. |
+| P1 | Provider routes | Add native dry-run/live harnesses for DeepSeek, GLM, and Qwen, or record a concrete blocked state. | Each route has a dated tested or blocked entry with provider/model details and failure modes. |
 | P1 | Agama citations | Extract or preserve finer-grained sutra or section markers when present in the Markdown. | Search output can cite representative passages beyond file, line, and fascicle where the source supports it. |
 | P2 | Scholarly collation | Add a stricter collation path from Markdown hits back to CBETA XML-P5 and relevant parallels. | Publication-level work has a documented verification route. |
-| P2 | Installation docs | Clarify install paths and activation expectations for Codex, Claude Code, and portable API use. | New users can install the skill or agent without reading implementation history. |
-| P2 | Release hygiene | Add version or changelog conventions once the repository stabilizes. | Changes can be summarized for users without reading merged PRs. |
+| P2 | Installation docs | Keep install paths and activation expectations current after platform changes. | New users can install the skill or agent without reading implementation history. |
+| P2 | Release hygiene | Keep `CHANGELOG.md` updated for user-visible changes. | Changes can be summarized for users without reading merged PRs. |
 
 ## Manual Validation Checklist
 

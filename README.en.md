@@ -2,7 +2,7 @@
 
 > Independent cognitive framework based on Upāsaka Yao Lei's Buddhist study system · Available to answer questions for others
 
-**Version**: v2.4 | **Established**: 2026-06-02 | **Last Updated**: 2026-06-12 | **Name**: Zilan (孜澜)
+**Version**: v2.4.1 | **Established**: 2026-06-02 | **Last Updated**: 2026-06-15 | **Name**: Zilan (孜澜)
 
 ---
 
@@ -171,12 +171,15 @@ Maintenance priorities and release guardrails are tracked in `docs/maintenance-r
 
 Manual runtime validation evidence is tracked in `docs/runtime-validation-log.md`.
 
+Installation paths are documented in `docs/installation.md`. Runtime evidence and transcript rules are documented in `docs/validation-evidence.md`. Provider route triage is documented in `docs/provider-routes.md`. Release notes are tracked in `CHANGELOG.md`.
+
 ---
 
 ## Compatibility And Collation Boundaries
 
 - **Platform status**: `agents/openai.yaml` is the machine-readable metadata source; `docs/platform-validation.md` records status definitions, validation evidence, and update rules.
 - **Current validation**: Codex and Claude Code were runtime-tested on 2026-06-12; OpenAI API has a dry-run harness and still needs live `OPENAI_API_KEY` evidence before it is end-to-end tested.
+- **Provider routes**: DeepSeek, GLM, and Qwen remain `config-only`; see `docs/provider-routes.md`.
 - **Runtime boundary**: Codex, Claude Code, OpenAI API, DeepSeek, GLM, and Qwen routes must not be described as tested unless the platform validation document says so.
 - **Scholarly collation**: the local Agama Markdown files are a searchable working corpus; publication-level citation should verify against CBETA XML and relevant parallel texts.
 

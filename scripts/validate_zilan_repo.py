@@ -16,11 +16,15 @@ REQUIRED_FILES = (
     "README.en.md",
     "SKILL.md",
     "SKILL-en.md",
+    "CHANGELOG.md",
     "CODEX_REGRESSION_TESTS.md",
     "AGENT_UPGRADE_PORTABLE.md",
     "docs/platform-validation.md",
     "docs/runtime-validation-log.md",
     "docs/maintenance-roadmap.md",
+    "docs/installation.md",
+    "docs/validation-evidence.md",
+    "docs/provider-routes.md",
     "docs/openai-api-harness.md",
     "LICENSE",
     "CONTRIBUTING.md",
@@ -66,6 +70,10 @@ README_FILES = ("README.md", "README.zh.md", "README.en.md")
 PLATFORM_VALIDATION_DOC = "docs/platform-validation.md"
 RUNTIME_VALIDATION_LOG_DOC = "docs/runtime-validation-log.md"
 MAINTENANCE_ROADMAP_DOC = "docs/maintenance-roadmap.md"
+INSTALLATION_DOC = "docs/installation.md"
+VALIDATION_EVIDENCE_DOC = "docs/validation-evidence.md"
+PROVIDER_ROUTES_DOC = "docs/provider-routes.md"
+CHANGELOG_DOC = "CHANGELOG.md"
 ALLOWED_VALIDATION_STATUSES = (
     "tested",
     "definition-versioned",
@@ -314,6 +322,14 @@ def _check_readme_platform_validation_links(root: Path, failures: list[str]) -> 
             failures.append(f"{rel_path} should link to {RUNTIME_VALIDATION_LOG_DOC}.")
         if MAINTENANCE_ROADMAP_DOC not in text:
             failures.append(f"{rel_path} should link to {MAINTENANCE_ROADMAP_DOC}.")
+        if INSTALLATION_DOC not in text:
+            failures.append(f"{rel_path} should link to {INSTALLATION_DOC}.")
+        if VALIDATION_EVIDENCE_DOC not in text:
+            failures.append(f"{rel_path} should link to {VALIDATION_EVIDENCE_DOC}.")
+        if PROVIDER_ROUTES_DOC not in text:
+            failures.append(f"{rel_path} should link to {PROVIDER_ROUTES_DOC}.")
+        if CHANGELOG_DOC not in text:
+            failures.append(f"{rel_path} should link to {CHANGELOG_DOC}.")
         if "agents/openai.yaml" not in text:
             failures.append(f"{rel_path} should mention agents/openai.yaml as platform metadata.")
 
