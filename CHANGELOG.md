@@ -1,0 +1,47 @@
+# Changelog
+
+All notable changes to zilan-agent are tracked here. Platform validation status remains governed by `agents/openai.yaml` and `docs/platform-validation.md`.
+
+## [2.4.1] - 2026-06-15
+
+### Added
+
+- Added `docs/installation.md` with separate Codex, Claude Code, and OpenAI API operating paths.
+- Added `docs/validation-evidence.md` to define runtime evidence levels, transcript redaction, and status-promotion rules.
+- Added `docs/provider-routes.md` to triage OpenAI API, DeepSeek, GLM, and Qwen route status without overclaiming live validation.
+- Added this changelog as the release summary surface for future project updates.
+
+### Changed
+
+- Updated README and maintenance docs to point to installation, evidence, provider-route, and changelog documents.
+- Kept OpenAI API live validation intentionally last; the route remains `harness-ready` until a live `OPENAI_API_KEY` run is recorded.
+- Kept DeepSeek, GLM, and Qwen conservative at `config-only` pending native harnesses or dated runtime evidence.
+
+## [2.4.0] - 2026-06-12
+
+### Added
+
+- Added a minimal OpenAI Responses API harness with dry-run and live modes.
+- Added pytest coverage and CI smoke testing for the OpenAI API harness.
+- Added `docs/openai-api-harness.md`.
+
+### Changed
+
+- Marked Claude Code as `tested` after a ZC-01 through ZC-06 runtime rerun.
+- Updated repository metadata, README status text, and platform validation records.
+- Updated the Claude Code agent prompt to prefer repository-local `scripts/` and `context/` paths when available.
+
+## [2.3.1] - 2026-06-12
+
+### Changed
+
+- Filtered additional Agama search false positives.
+- Preserved stable citation output for downstream prompt contracts.
+
+## [2.3.0] - 2026-06-10
+
+### Added
+
+- Added Codex and Claude Code agent prompts.
+- Added platform validation documents, runtime validation log, maintenance roadmap, and regression matrix.
+- Added Agama search and repository validation tooling.

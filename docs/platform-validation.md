@@ -1,6 +1,6 @@
 # Platform Validation Status
 
-> Last updated: 2026-06-12
+> Last updated: 2026-06-15
 
 This document is the source of truth for Zilan's platform validation status. It keeps engineering checks, manual runtime validation, provider metadata, and scholarly collation boundaries separate so the project does not overclaim platform support.
 
@@ -22,9 +22,9 @@ This document is the source of truth for Zilan's platform validation status. It 
 | Codex | `tested` | 2026-06-12 | `docs/runtime-validation-log.md`, `CODEX_REGRESSION_TESTS.md`, `tests/regression_cases.yaml`, `agents/zilan-codex.md` | ZC-01 through ZC-06 passed in Codex on 2026-06-12 with local Markdown context. ZC-04 through ZC-06 used parent-observed sub-agent spawns. CI validates the regression inventory and tooling; it does not grade answer quality. |
 | Claude Code | `tested` | 2026-06-12 | `docs/runtime-validation-log.md`, `CODEX_REGRESSION_TESTS.md`, `tests/regression_cases.yaml`, `agents/zilan-claude-code.md` | ZC-01 through ZC-06 passed through Claude Code CLI 2.1.169 with the repository agent prompt loaded. The noninteractive direct prompt-file route is tested; background auto-spawn behavior is not separately audited. |
 | OpenAI API | `harness-ready` | Dry-run harness: 2026-06-12 | `scripts/openai_api_harness.py`, `tests/test_openai_api_harness.py`, `docs/openai-api-harness.md`, `agents/openai.yaml` | The harness builds OpenAI Responses API requests and is covered by pytest. Live `--live` execution is not yet recorded and requires `OPENAI_API_KEY`. |
-| DeepSeek | `config-only` | Not end-to-end tested | `agents/openai.yaml`, `AGENT_UPGRADE_PORTABLE.md` | The Anthropic-compatible endpoint issue is documented in `AGENT_UPGRADE_PORTABLE.md`; do not mark this route tested until that integration is verified. |
-| GLM | `config-only` | Not end-to-end tested | `agents/openai.yaml` | Provider metadata exists, but no runtime transcript or harness is committed. |
-| Qwen | `config-only` | Not end-to-end tested | `agents/openai.yaml` | Provider metadata exists, but no runtime transcript or harness is committed. |
+| DeepSeek | `config-only` | Not end-to-end tested | `agents/openai.yaml`, `AGENT_UPGRADE_PORTABLE.md`, `docs/provider-routes.md` | Provider metadata exists, but no native DeepSeek harness or credential-backed runtime evidence is committed. The Anthropic-compatible endpoint caveat is documented separately and should not be treated as native DeepSeek validation. |
+| GLM | `config-only` | Not end-to-end tested | `agents/openai.yaml`, `docs/provider-routes.md` | Provider metadata exists, but no GLM harness, credential-backed runtime transcript, or live evidence is committed. |
+| Qwen | `config-only` | Not end-to-end tested | `agents/openai.yaml`, `docs/provider-routes.md` | Provider metadata exists, but no Qwen harness, credential-backed runtime transcript, or live evidence is committed. |
 
 ## Validation Layers
 
@@ -75,6 +75,8 @@ Claude Code answer quality is validated manually with the same ZC prompt family 
 The OpenAI API route has a minimal harness at `scripts/openai_api_harness.py`. Dry-run mode builds a Responses API request from `agents/openai.yaml`, `tests/regression_cases.yaml`, and bounded local context. Live mode requires `OPENAI_API_KEY` and `--live`; do not mark OpenAI API `tested` until a dated live run is recorded.
 
 ### Provider Routes
+
+The current non-OpenAI provider triage is in `docs/provider-routes.md`. DeepSeek, GLM, and Qwen remain `config-only` because this repository has provider metadata but no native dry-run/live harnesses or dated runtime evidence for those routes.
 
 Before changing a route from `metadata-only`, `harness-ready`, or `config-only` to `tested`, commit or document:
 

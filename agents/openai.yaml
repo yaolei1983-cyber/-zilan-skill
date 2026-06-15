@@ -58,13 +58,13 @@ validation:
     scope: "scripts/openai_api_harness.py builds OpenAI Responses API requests from agents/openai.yaml and regression cases; dry-run is tested, live --live execution still requires OPENAI_API_KEY evidence."
   deepseek:
     status: config-only
-    scope: "Not end-to-end tested in this PR; the Anthropic-compatible endpoint issue is documented in AGENT_UPGRADE_PORTABLE.md."
+    scope: "Provider metadata only. No native DeepSeek harness, DEEPSEEK_API_KEY-backed runtime evidence, or dated live transcript is committed. The Anthropic-compatible endpoint caveat is documented in AGENT_UPGRADE_PORTABLE.md and triaged in docs/provider-routes.md."
   glm:
     status: config-only
-    scope: "Not end-to-end tested in this PR."
+    scope: "Provider metadata only. No GLM harness, ZHIPUAI_API_KEY-backed runtime evidence, or dated live transcript is committed; see docs/provider-routes.md."
   qwen:
     status: config-only
-    scope: "Not end-to-end tested in this PR."
+    scope: "Provider metadata only. No Qwen harness, DASHSCOPE_API_KEY-backed runtime evidence, or dated live transcript is committed; see docs/provider-routes.md."
 
 # ── 工具绑定 ──────────────────────────────────────────
 
