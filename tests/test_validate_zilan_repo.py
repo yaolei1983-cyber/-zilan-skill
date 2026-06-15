@@ -1,6 +1,11 @@
 from pathlib import Path
 
-from validate_zilan_repo import _check_agent_prompts, _check_platform_validation_doc, run_checks
+from validate_zilan_repo import (
+    _check_agent_prompts,
+    _check_platform_validation_doc,
+    _check_portable_upgrade_doc,
+    run_checks,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -80,3 +85,16 @@ runtime: codex-sub-agent
 
     assert any("search_agama.py --json" in failure for failure in failures)
     assert any("passage_citation" in failure for failure in failures)
+
+
+def test_portable_upgrade_doc_missing_current_fragments_is_reported(tmp_path: Path) -> None:
+    (tmp_path / "AGENT_UPGRADE_PORTABLE.md").write_text(
+        "# Old migration note\n\nThis file still describes only v2.3 setup.",
+        encoding="utf-8",
+    )
+    failures: list[str] = []
+
+    _check_portable_upgrade_doc(tmp_path, failures)
+
+    assert any("Current Architecture" in failure for failure in failures)
+    assert any("docs/provider-routes.md" in failure for failure in failures)
