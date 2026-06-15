@@ -2,6 +2,15 @@
 
 All notable changes to zilan-agent are tracked here. Platform validation status remains governed by `agents/openai.yaml` and `docs/platform-validation.md`.
 
+## [2.4.2] - 2026-06-15
+
+### Changed
+
+- Rewrote `AGENT_UPGRADE_PORTABLE.md` as a current Skill-to-Agent migration record instead of an obsolete v2.3 implementation note.
+- Clarified that the historical DeepSeek Anthropic-compatible caveat is not native DeepSeek route validation.
+- Recorded a clean clone installation smoke test in `docs/runtime-validation-log.md`.
+- Added invariant checks for current migration-record fragments.
+
 ## [2.4.1] - 2026-06-15
 
 ### Added

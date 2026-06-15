@@ -74,6 +74,7 @@ INSTALLATION_DOC = "docs/installation.md"
 VALIDATION_EVIDENCE_DOC = "docs/validation-evidence.md"
 PROVIDER_ROUTES_DOC = "docs/provider-routes.md"
 CHANGELOG_DOC = "CHANGELOG.md"
+PORTABLE_UPGRADE_DOC = "AGENT_UPGRADE_PORTABLE.md"
 ALLOWED_VALIDATION_STATUSES = (
     "tested",
     "definition-versioned",
@@ -351,6 +352,22 @@ def _check_runtime_validation_log(root: Path, failures: list[str]) -> None:
             failures.append(f"{RUNTIME_VALIDATION_LOG_DOC} missing regression case: {case}")
 
 
+def _check_portable_upgrade_doc(root: Path, failures: list[str]) -> None:
+    text = (root / PORTABLE_UPGRADE_DOC).read_text(encoding="utf-8")
+    required_fragments = (
+        "Skill To Agent Migration Record",
+        "Current Architecture",
+        "docs/installation.md",
+        "docs/platform-validation.md",
+        "docs/provider-routes.md",
+        "DeepSeek Compatibility Caveat",
+        "Do not infer platform support from this file alone",
+    )
+    for fragment in required_fragments:
+        if fragment not in text:
+            failures.append(f"{PORTABLE_UPGRADE_DOC} missing required fragment: {fragment}")
+
+
 def _check_yaml(root: Path, failures: list[str], warnings: list[str], strict_yaml: bool) -> None:
     data = _load_yaml(root, "agents/openai.yaml", failures, warnings, strict_yaml)
     if data is None:
@@ -454,6 +471,7 @@ def run_checks(
     _check_agent_prompts(root, failures)
     _check_readme_platform_validation_links(root, failures)
     _check_runtime_validation_log(root, failures)
+    _check_portable_upgrade_doc(root, failures)
     _check_yaml(root, failures, warnings, strict_yaml)
     _check_agama_search(root, failures)
     if check_generated:

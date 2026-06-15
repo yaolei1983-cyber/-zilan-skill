@@ -1,6 +1,6 @@
 # Runtime Validation Log
 
-> Last updated: 2026-06-12
+> Last updated: 2026-06-15
 
 This log records manual runtime validation evidence for zilan-agent. It complements CI and repository invariant checks; it does not replace `python scripts/validate_zilan_repo.py --check-generated --strict-yaml`, pytest, ruff, or platform status maintenance in `agents/openai.yaml` and `docs/platform-validation.md`.
 
@@ -147,6 +147,32 @@ Use conservative status labels:
 - Dry-run mode does not require `OPENAI_API_KEY` and is covered by `tests/test_openai_api_harness.py`.
 - Live mode is implemented behind `--live` and fails fast unless `OPENAI_API_KEY` is present.
 - OpenAI API should remain `harness-ready`, not `tested`, until a dated live run is recorded.
+
+## 2026-06-15 Clean Install Smoke
+
+| Field | Value |
+|---|---|
+| Runtime | Clean repository install smoke |
+| Source | Fresh clone from `https://github.com/RyanYao527/zilan-agent.git` |
+| Local path | `C:\tmp\zilan-clean-install-20260615` |
+| Repository commit | `7033ff1b7a46f626856a13799a0f2f65bd304838` |
+| Scope | Installation and engineering checks from `docs/installation.md` |
+| Transcript status | Command outputs summarized here; no model transcript involved. |
+| Overall result | `pass` |
+
+### Checks
+
+| Check | Result | Notes |
+|---|---|---|
+| `python scripts\validate_zilan_repo.py --check-generated --strict-yaml` | `pass` | Generated Agama files remained clean after validation. |
+| `python -m pytest` | `pass` | 15 tests passed after generated-file validation completed. |
+| `python -m ruff check scripts tests` | `pass` | No lint findings. |
+| `python scripts\openai_api_harness.py --case ZC-02` | `pass` | Dry-run only; model `gpt-5.5`; no live API call. |
+| `python scripts\search_agama.py --terms "無我|非我|緣起" --limit 5` | `pass` | Returned five local Markdown matches with stable citations. |
+
+### Observation
+
+An initial operator attempt ran `validate_zilan_repo.py --check-generated` in parallel with pytest. Because the validation command may rebuild generated Agama Markdown, this can create a transient read/write race for tests that inspect generated files. The valid clean-install protocol is to run generated-file validation sequentially before pytest.
 
 ## Next Validation Entries
 

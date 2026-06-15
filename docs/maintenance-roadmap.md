@@ -15,6 +15,7 @@ This roadmap records engineering maintenance state and next priorities for zilan
 | Runtime validation | `docs/runtime-validation-log.md` records manual runtime validation sessions and transcript availability. |
 | Runtime evidence policy | `docs/validation-evidence.md` defines evidence levels, transcript redaction, and status-promotion rules. |
 | Installation docs | `docs/installation.md` separates Codex, Claude Code, and OpenAI API operating paths. |
+| Clean install smoke | A 2026-06-15 clean clone from GitHub passed repository checks, pytest, ruff, OpenAI dry-run, and Agama search smoke tests when run sequentially. |
 | OpenAI API harness | `scripts/openai_api_harness.py` builds dry-run or live Responses API requests from `agents/openai.yaml` and regression cases; live runs require `OPENAI_API_KEY`. |
 | Provider route triage | `docs/provider-routes.md` keeps OpenAI API, DeepSeek, GLM, and Qwen route claims conservative until live evidence exists. |
 | Agama search | `scripts/search_agama.py` searches Markdown only by default, filters known false positives, supports passage grouping, emits JSON, and provides stable `citation` / `passage_citation` fields. |
@@ -24,6 +25,7 @@ This roadmap records engineering maintenance state and next priorities for zilan
 ## Operating Rules
 
 - Run `python scripts/validate_zilan_repo.py --check-generated --strict-yaml`, `python -m pytest`, and `python -m ruff check scripts tests` before merging prompt, context, script, or platform metadata changes.
+- Run generated-file checks sequentially rather than in parallel with pytest; `--check-generated` may rebuild committed Agama Markdown during validation.
 - Keep platform claims conservative. Do not mark a route `tested` without dated validation evidence in `docs/platform-validation.md`.
 - Use local Agama Markdown as a searchable working corpus. Use `_source/` XML only for collation, source verification, or CBETA-specific checks.
 - Preserve stable citation output in `search_agama.py`; downstream prompts and regression expectations depend on `citation` and `passage_citation`.
